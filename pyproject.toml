@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools >= 65.5.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+requires-python = ">=3.9,<4"
+name = "email_tools_py"
+dependencies = [
+    "beautifulsoup4==4.12.3",
+    "tinycss2==1.4.*",
+]
+version = "0.0.0"
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "isort",
+    "pyright",
+]
+
+[tool.setuptools.packages.find]
+include = ["email_tools_py"]
+namespaces = false
+
+[tool.black]
+line-length = 80
+
+[tool.isort]
+profile = "black"
+line_length = 80
+lines_after_imports = 2
+combine_as_imports = true
+
+[tool.pyright]
+reportIncompatibleVariableOverride = true
+reportIncompatibleMethodOverride = true
+useLibraryCodeForTypes = true
+strictListInference = true
+strictDictionaryInference = true
+strictSetInference = true
+
+[tool.ruff]
+lint.select = ["F401"]
+line-length = 80
+
